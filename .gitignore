@@ -1,0 +1,17 @@
+
+.gradle/
+.idea/
+HELP.md
+build/
+gradle/
+gradlew
+gradlew.bat
+kams_app_oskarpolak.iml
+out/
+settings.gradle
+application.properites
+Banner.txt
+src/resources/static/
+src/test/
+
+

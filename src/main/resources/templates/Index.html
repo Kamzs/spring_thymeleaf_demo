@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Strona główna apki web</title>
+</head>
+<body>
+
+<h1>Strona główna apki web</h1>
+
+<p th:text="${danazKontrolera == 'B'} ? 'Jest przed 16' : 'jest po 16' "></p>
+
+
+<h1>Form - jakis komunikat</h1>
+<form action="#" th:action="@{/data}" method="post">
+    <p><input type="text" th:name="name"/></p>
+    <p><input type="submit" value="Submit"/>
+</form>
+
+<h1>Form2 - wprowadz dane</h1>
+<form action="#" th:action="@{/data2}" method="post">
+    <p>Podaj imie </p>
+    <p>Imie<input type="text" th:name="imie"/></p>
+    <p>Podaj nazwisko </p>
+    <p>Nazwisko<input type="text" th:name="nazwisko"/></p>
+    <p>Podaj wiek</p>
+    <p>Wiek<input type="number" th:name="wiek"/></p>
+    <p><input type="submit" value="Submit"/>
+</form>
+
+
+</body>
+</html>
