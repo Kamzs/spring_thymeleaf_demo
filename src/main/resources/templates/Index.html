@@ -7,18 +7,22 @@
 </head>
 <body>
 
-<h1>Strona główna apki web</h1>
-
+<center>
+<h1>Nagłówek z pliku html ktory zwracamany jest dla zapytań HTTP GET pod adresem localhost/ </h1>
+<p> poniższy komunikat powstaje w ramach IFa działającego w html</p>
 <p th:text="${danazKontrolera == 'B'} ? 'Jest przed 16' : 'jest po 16' "></p>
 
+<h1>Formularz 1 ktorym pozyskujemy dane bez uwzględnienia obiektu </h1>
 
-<h1>Form - jakis komunikat</h1>
+
 <form action="#" th:action="@{/data}" method="post">
     <p><input type="text" th:name="name"/></p>
     <p><input type="submit" value="Submit"/>
 </form>
 
-<h1>Form2 - wprowadz dane</h1>
+
+
+<h1>Formularz 2 ktorym pozyskujemy dane bez uwzględnienia obiektu </h1>
 <form action="#" th:action="@{/data2}" method="post">
     <p>Podaj imie </p>
     <p>Imie<input type="text" th:name="imie"/></p>
@@ -28,7 +32,7 @@
     <p>Wiek<input type="number" th:name="wiek"/></p>
     <p><input type="submit" value="Submit"/>
 </form>
-
+</center>
 
 </body>
 </html>

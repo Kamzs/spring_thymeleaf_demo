@@ -5,7 +5,9 @@
     <title>Fullform</title>
 </head>
 <body>
-<form action="#" th:action="@{/showfor}" th:object="${personObject}" method="post">
+<center>
+    <h1> Formumlarz pełny (uwzględniający typ obiektu) </h1>
+<form action="#" th:action="@{/fullform}" th:object="${personObject}" method="post">
 
     <p>Imie: <input type="text" th:field="*{name}"></p>
     <p>Nazwisko: <input type="text" th:field="*{lastname}"></p>
@@ -14,11 +16,10 @@
     <p>E-mail: <input type="email" th:field="*{email}"></p>
     <p><button type="submit"> Wyslij </button> </p>
 
-
-
-
-
 </form>
 
+
+
+</center>
 </body>
 </html>

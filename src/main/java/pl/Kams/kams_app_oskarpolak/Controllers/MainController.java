@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.Kams.kams_app_oskarpolak.Models.Notification;
 import pl.Kams.kams_app_oskarpolak.Models.Person;
 import pl.Kams.kams_app_oskarpolak.Models.SimpleBean;
 
@@ -33,12 +34,13 @@ public class MainController
         return "Index";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    /*@RequestMapping(value = "/", method = RequestMethod.PUT)
     @ResponseBody
     public String zwroccokolwiekPUT()
     {
+        //instrukcja którą wywuluje przeslanie zapytania HTTP PUT pod adres localhost/
         return "dziala mapping";
-    }
+    }*/
 
 
     @Autowired
@@ -87,11 +89,43 @@ public class MainController
 
     }
 
-    @RequestMapping(value = "/showform", method = RequestMethod.GET)
-    public String fullform(Model model)
+
+    @RequestMapping(value = "/fullform", method = RequestMethod.GET)
+    public String fullformGet (Model model)
     {
+        //wskazanie Springowi, żeby stworzyl obiekt
         model.addAttribute("personObject", new Person());
         return "Fullform";
+    }
+
+    @RequestMapping(value = "/fullform", method = RequestMethod.POST)
+    @ResponseBody
+    public String fullformPost (Person person)
+    {
+
+        return "odczytuje pole name dla obiektu, ktory trafil do aplikacji metodą POST:" + person.getName();
+    }
+
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String contactGet (Model model)
+    {
+        //wskazanie Springowi, żeby stworzyl obiekt
+        model.addAttribute("notificationObject", new Notification());
+        return "ContactForm";
+    }
+
+    @RequestMapping(value = "/contact", method = RequestMethod.POST)
+    @ResponseBody
+    public String contactPost (Notification notification)
+    {
+
+        return "odczytuje pole name dla obiektu, ktory trafil do aplikacji metodą POST:"
+                + notification.getName()
+                //nowa linia w html
+                +"<br>"
+                + "odczytuje pole data dla obiektu, ktory trafil do aplikacji metodą POST:"
+                + notification.getData()
+        ;
     }
 
 

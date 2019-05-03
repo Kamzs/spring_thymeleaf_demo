@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ContactForm</title>
+</head>
+<body>
+<center>
+    <h1> Formumlarz kontaktowy </h1>
+    <form id="contactform" action="#" th:action="@{/contact}" th:object="${notificationObject}" method="post">
+
+        <p>Imie: <input type="text" th:field="*{name}"></p>
+        <p>Nazwisko: <input type="text" th:field="*{surname}"></p>
+        <p>E-mail: <input type="email" th:field="*{email}"></p>
+        <p><button type="submit"> Wyslij </button> </p>
+        <br>
+        <textarea rows="10" cols="50" th:field="*{data}" form="contactform">
+        Enter text here...</textarea>
+    </form>
+
+
+
+</center>
+</body>
+</html>
