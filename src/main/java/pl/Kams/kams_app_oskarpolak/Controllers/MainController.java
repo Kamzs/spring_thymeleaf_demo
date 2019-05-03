@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import pl.Kams.kams_app_oskarpolak.Models.Person;
 import pl.Kams.kams_app_oskarpolak.Models.SimpleBean;
 
 import java.time.LocalDateTime;
+import java.time.Period;
 
 @Controller
 public class MainController
@@ -84,5 +86,19 @@ public class MainController
                         isAdult;
 
     }
+
+    //builder
+    private void testBuilder()
+    {
+        Person person = new Person.Builder("kams")
+                .age(25)
+                .email("kam@gmial.com")
+                .lastname("Ambro")
+                .build();
+        
+    }
+
+
+
 
 }
