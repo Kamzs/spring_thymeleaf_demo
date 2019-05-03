@@ -113,6 +113,18 @@ public class Person
             return new Person(this);
         }
 
+
     }
 
+    @Override
+    public String toString()
+    {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", age=" + age +
+                ", number='" + number + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

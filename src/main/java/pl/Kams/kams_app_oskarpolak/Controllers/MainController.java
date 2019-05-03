@@ -87,6 +87,14 @@ public class MainController
 
     }
 
+    @RequestMapping(value = "/showform", method = RequestMethod.GET)
+    public String fullform(Model model)
+    {
+        model.addAttribute("personObject", new Person());
+        return "Fullform";
+    }
+
+
     //builder
     private void testBuilder()
     {
@@ -95,7 +103,7 @@ public class MainController
                 .email("kam@gmial.com")
                 .lastname("Ambro")
                 .build();
-        
+
     }
 
 

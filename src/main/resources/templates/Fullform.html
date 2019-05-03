@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Fullform</title>
+</head>
+<body>
+<form action="#" th:action="@{/showfor}" th:object="${personObject}" method="post">
+
+    <p>Imie: <input type="text" th:field="*{name}"></p>
+    <p>Nazwisko: <input type="text" th:field="*{lastname}"></p>
+    <p>Wiek: <input type="number" th:field="*{age}"></p>
+    <p>Number: <input type="text" th:field="*{number}"></p>
+    <p>E-mail: <input type="email" th:field="*{email}"></p>
+    <p><button type="submit"> Wyslij </button> </p>
+
+
+
+
+
+</form>
+
+</body>
+</html>
