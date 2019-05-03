@@ -1,15 +1,29 @@
 package pl.Kams.kams_app_oskarpolak.Models;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+
 public class Notification
 {
+    @NotEmpty
+    @Max(value = 20)
     String name;
+
+    @NotEmpty
+    @Max(value = 20)
     String surname;
+
+    @NotEmpty
+    @Max(value = 50)
     String email;
+
+    @NotEmpty
+    @Max(value = 1000)
     String data;
 
     public Notification(){};
 
-    public Notification(Builder builder)
+    private Notification(Builder builder)
     {
         name = builder.name;
         surname = builder.surname;
@@ -60,10 +74,10 @@ public class Notification
     public class Builder
     {
 
-        String name;
-        String surname;
-        String email;
-        String data;
+        private String name;
+        private String surname;
+        private String email;
+        private String data;
 
         public Builder(String name)
         {

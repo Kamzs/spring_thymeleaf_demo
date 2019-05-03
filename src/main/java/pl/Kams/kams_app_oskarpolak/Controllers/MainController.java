@@ -3,6 +3,7 @@ package pl.Kams.kams_app_oskarpolak.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +12,8 @@ import pl.Kams.kams_app_oskarpolak.Models.Notification;
 import pl.Kams.kams_app_oskarpolak.Models.Person;
 import pl.Kams.kams_app_oskarpolak.Models.SimpleBean;
 
+import javax.naming.Binding;
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.Period;
 
@@ -99,11 +102,12 @@ public class MainController
     }
 
     @RequestMapping(value = "/fullform", method = RequestMethod.POST)
-    @ResponseBody
-    public String fullformPost (Person person)
+    public String fullformPost (@Valid Person person, BindingResult vaildationResult)
     {
+        if ( vaildationResult.hasErrors())
+        {return "Fullform";}
 
-        return "odczytuje pole name dla obiektu, ktory trafil do aplikacji metodą POST:" + person.getName();
+        return "FormValidationCorrectTemplate";
     }
 
     @RequestMapping(value = "/contact", method = RequestMethod.GET)
@@ -115,18 +119,20 @@ public class MainController
     }
 
     @RequestMapping(value = "/contact", method = RequestMethod.POST)
-    @ResponseBody
-    public String contactPost (Notification notification)
-    {
+    public String contactPost (@Valid Notification notification, BindingResult valResult)
+        {
+            if ( valResult.hasErrors())
+            {return "Notification";}
 
-        return "odczytuje pole name dla obiektu, ktory trafil do aplikacji metodą POST:"
+            return "FormValidationCorrectTemplate";
+        }
+/*        return "odczytuje pole name dla obiektu, ktory trafil do aplikacji metodą POST:"
                 + notification.getName()
                 //nowa linia w html
                 +"<br>"
                 + "odczytuje pole data dla obiektu, ktory trafil do aplikacji metodą POST:"
                 + notification.getData()
-        ;
-    }
+        ;*/
 
 
     //builder
