@@ -5,20 +5,17 @@ import javax.validation.constraints.NotEmpty;
 
 public class Notification
 {
+
     @NotEmpty
-    @Max(value = 20)
     String name;
 
-    @NotEmpty
-    @Max(value = 20)
+
     String surname;
 
-    @NotEmpty
-    @Max(value = 50)
+
     String email;
 
-    @NotEmpty
-    @Max(value = 1000)
+
     String data;
 
     public Notification(){};

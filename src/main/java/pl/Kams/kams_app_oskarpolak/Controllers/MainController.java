@@ -122,7 +122,7 @@ public class MainController
     public String contactPost (@Valid Notification notification, BindingResult valResult)
         {
             if ( valResult.hasErrors())
-            {return "Notification";}
+            {return "ContactForm";}
 
             return "FormValidationCorrectTemplate";
         }

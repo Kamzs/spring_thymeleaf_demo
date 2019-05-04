@@ -4,13 +4,24 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
+
 public class Person
 
 {
+
+    @NotEmpty
     private String name;
+
+
     private String lastname;
+
+
     private int age;
+
+
     private String number;
+
+
     private String email;
 
     public Person(){};
@@ -77,24 +88,11 @@ public class Person
     public static class Builder
     {
 
-        @NotEmpty
-        @Max(value = 20)
+
         private String name;
-
-        @NotEmpty
-        @Max(value = 20)
         private String lastname;
-
-        @NotEmpty
-        @Max(value = 3)
         private int age;
-
-        @NotEmpty
-        @Pattern(regexp = "[0-9]{3}-[0-9]{3}-[0-9]{3}")
         private String number;
-
-        @NotEmpty
-        @Max(value = 50)
         private String email;
 
         public Builder(String name)
