@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pl.Kams.kams_app_oskarpolak.Models.Notification;
 import pl.Kams.kams_app_oskarpolak.Models.Person;
 import pl.Kams.kams_app_oskarpolak.Models.SimpleBean;
@@ -102,7 +99,7 @@ public class MainController
     }
 
     @RequestMapping(value = "/fullform", method = RequestMethod.POST)
-    public String fullformPost (@Valid Person person, BindingResult vaildationResult)
+    public String fullformPost (@ModelAttribute("personObject") @Valid Person person, BindingResult vaildationResult)
     {
         if ( vaildationResult.hasErrors())
         {return "Fullform";}
@@ -119,7 +116,7 @@ public class MainController
     }
 
     @RequestMapping(value = "/contact", method = RequestMethod.POST)
-    public String contactPost (@Valid Notification notification, BindingResult valResult)
+    public String contactPost (@ModelAttribute("notificationObject") @Valid Notification notification, BindingResult valResult)
         {
             if ( valResult.hasErrors())
             {return "ContactForm";}

@@ -9,7 +9,12 @@
     <h1> Formumlarz pełny (uwzględniający typ obiektu) </h1>
 <form action="#" th:action="@{/fullform}" th:object="${personObject}" method="post">
 
-    <p>Imie: <input type="text" th:field="*{name}"></p>
+    <p>Imie: <input type="text" th:field="*{name}">
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" >
+            Błąd w polu imie
+        </span>
+    </p>
+
     <p>Nazwisko: <input type="text" th:field="*{lastname}"></p>
     <p>Wiek: <input type="number" th:field="*{age}"></p>
     <p>Number: <input type="text" th:field="*{number}"></p>
