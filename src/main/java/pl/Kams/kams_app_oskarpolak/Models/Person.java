@@ -9,7 +9,7 @@ public class Person
 
 {
 
-    @NotEmpty
+    @NotEmpty(message = "pole nazwa nie może byc puste")
     private String name;
 
 

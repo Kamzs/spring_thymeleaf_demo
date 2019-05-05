@@ -6,7 +6,7 @@ import javax.validation.constraints.NotEmpty;
 public class Notification
 {
 
-    @NotEmpty
+    @NotEmpty(message = "pole nazwa nie może byc puste")
     String name;
 
 
